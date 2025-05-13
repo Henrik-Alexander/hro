@@ -5,3 +5,6 @@
 figures/
 data/
 raw/
+*.csv
+*.xlsx
+*.pdf
