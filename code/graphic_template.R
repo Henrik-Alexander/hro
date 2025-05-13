@@ -3,10 +3,12 @@ theme_set(theme_bw(base_size = 15, base_family = "serif"))
 theme_update(
   axis.text = element_text(colour="black"),
   strip.text = element_text(face = "bold"),
-  strip.background = element_rect(fill="white")
+  strip.background = element_rect(fill="white"),
+  axis.title = element_text(face = "bold"),
+  legend.background = element_rect(colour="grey")
 )
 
-# Create the colours
+# Create the colour vector
 mpidr_grey <- rgb(200, 200, 200, maxColorValue = 254)
 mpidr_blue <- rgb(14, 123, 172, maxColorValue = 254)
 mpidr_green <- rgb(6,110,110, maxColorValue = 254)

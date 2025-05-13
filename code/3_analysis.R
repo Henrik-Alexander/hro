@@ -87,7 +87,7 @@ ggplot(data=pop_proj_hro, aes(x=year, y=pop, colour="Projektion")) +
 # Plot the population developmetn in the city
 rostock_growth <- insgesamt %>% 
   group_by(year) %>% 
-  summarise(Rostock = sum(einwohnerzahl),
+  summarise(Rostock = sum(einwohnerzahl), .groups="drop"
   ) 
 
 ggplot(data=pop_proj_hro) +
@@ -126,7 +126,7 @@ population_growth <- bewegung_gesamt %>%
   summarise(abs_bestandsveraenderung =sum(abs_bestandsveraenderung ),
             duration=max(year)-min(year),
             start=min(year),
-            end=max(year))
+            end=max(year), .groups="drop")
 plot_population_growth <- plot_indicator_map(population_growth, abs_bestandsveraenderung)
 plot_population_growth +
   ggtitle("Bevölkerungswachstum (2005-2019)") +
@@ -164,10 +164,12 @@ ggplot(data= subset(bewegung_gesamt, stadtbereich_bezeichnung %in% select_distri
  # geom_text(data=subset(bewegung_gesamt, year == max(year)), aes(label = stadtbereich_bezeichnung, colour=stadtbereich_bezeichnung), nudge_x=1) +
   scale_x_continuous(expand = c(0, 0), limits = c(2004.5, 2023.5)) +
   scale_y_continuous("Bevölkerungsveränderung") +
-  scale_fill_manual(values = mpidr_colour_pallete) +
+  scale_fill_manual(values = c(mpidr_green, mpidr_blue, mpidr_orange, mpidr_grey, mpidr_red)) +
+  scale_colour_manual(values = c(mpidr_green, mpidr_blue, mpidr_orange, mpidr_grey, mpidr_red)) +
+  
   guides(colour = "none", shape="none", fill="none") +
   facet_wrap(~ stadtbereich_bezeichnung)
-ggsave(filena)
+ggsave(filename="figures/pop_change_district.pdf", height=15, width=20, unit = "cm")
 
 # Make the plot
 plot <- plot_indicator_map(haushaltsstruktur, indicator=anteil_alleinerziehende_an_mit_kindern, year=2023)
@@ -195,7 +197,7 @@ plot +
 
 bewegung_natuerlich %>% 
   group_by(year) %>% 
-  summarise(deaths=sum(anzahl_gestorbene)) %>% 
+  summarise(deaths=sum(anzahl_gestorbene), .groups="drop") %>% 
   ggplot(aes(x=year, y=deaths)) +
   geom_line() +
   geom_point() +
@@ -205,7 +207,7 @@ bewegung_natuerlich %>%
 
 bewegung_natuerlich %>% 
   group_by(year) %>% 
-  summarise(births=sum(anzahl_lebendgeborene)) %>% 
+  summarise(births=sum(anzahl_lebendgeborene), .groups="drop") %>% 
   ggplot(aes(x=year, y=births)) +
   geom_line() +
   geom_point() +
@@ -253,19 +255,22 @@ alter$midage <- create_midage(alter$age_group)
 alter$age_group <- clean_agegroup(alter$age_group)
          
 # Plot the distribution
-ggplot(subset(alter, variable == "anteil" & year %in% c(2005, 2023)), aes(x=midage, y = pop, group = year, colour=as.factor(year))) + 
+ggplot(subset(alter, variable == "anteil" & year %in% c(2005, 2023) & stadtbereich_bezeichnung %in% select_districts), aes(x=midage, y = pop, group = year, colour=as.factor(year))) + 
   geom_line(linewidth=1.5) + 
   geom_point(size=3) +
   facet_wrap(~ stadtbereich_bezeichnung) +
-  scale_colour_manual("Year", palette=mpidr_colour_pallete) +
+  scale_colour_manual("Year", values=c(mpidr_blue, mpidr_orange)) +
+  scale_x_continuous("Alter", expand = c(0, 1), n.breaks = 10) +
+  scale_y_continuous("Bevölkerung", n.breaks = 6) +
   theme(legend.position=c(0.8, 0.1))
 
+ggsave(filename="figures/altersstruktur_rostock_districts.pdf", height=15, width=25, unit="cm")
 
 # Estimate the population count in each age group
 alter_rostock <- alter %>% 
   filter(variable == "anzahl") %>% 
   group_by(year, midage, age_group) %>% 
-  summarise(pop = sum(pop))
+  summarise(pop = sum(pop), .groups="drop")
 
 
 # Plot the age structure in Rostock
@@ -299,7 +304,7 @@ ggsave(filename="figures/sr_district_map.pdf", height=20, width=15, unit="cm")
 # Plot the sex ratio
 geschlecht %>% 
   group_by(year) %>% 
-  summarise(sr = sum(anzahl_maennlich)/sum(anzahl_weiblich)) %>% 
+  summarise(sr = sum(anzahl_maennlich)/sum(anzahl_weiblich), .groups="drop") %>% 
   ggplot(aes(x=year, y = sr)) + 
     geom_hline(yintercept = 1) +
     geom_line(linewidth=1.3) +
@@ -314,16 +319,19 @@ geschlecht <- pivot_longer(geschlecht, cols = starts_with("an"), names_to = c("v
 
 
 ggplot(data=subset(geschlecht, variable=="anzahl" & stadtbereich_bezeichnung %in% select_districts), aes(x=year, y = pop, colour=sex_group)) + 
-  geom_line() + 
-  geom_point() +
+  geom_line(linewidth=1.5) + 
+  geom_point(size=3) +
   scale_colour_manual("Geschlecht:", values = c(mpidr_blue, mpidr_red)) +
+  scale_x_continuous("Jahr", expand = c(0, 0.5)) +
+  scale_y_continuous("Bevölkerung") +
   facet_wrap(~stadtbereich_bezeichnung, scales = "free_y") +
   theme(legend.position = c(0.8, 0.2))
+ggsave(filename="figures/sr_rostock_districts.pdf", height=15, width=20, unit="cm")
 
 
 geschlecht_rostock <- geschlecht %>% 
   group_by(year, variable, sex_group) %>% 
-  summarise(pop=sum(pop)) %>% 
+  summarise(pop=sum(pop), .groups="drop") %>% 
   filter(variable == "anzahl") 
 ggplot(data=geschlecht_rostock, aes(x=year, y=pop, group=sex_group, colour=sex_group)) +
   geom_text(data=subset(geschlecht_rostock, year==2023), aes(label=sex_group), nudge_y=300, nudge_x=-0.5) +
@@ -344,7 +352,7 @@ movement_trend <- bewegung_raeumlich %>%
   summarise(wanderungssaldo=sum(wanderungssaldo),
             duration=max(year)-min(year),
             start=min(year),
-            end=max(year))
+            end=max(year), .groups="drop")
 plot_movement_trend <- plot_indicator_map(movement_trend, wanderungssaldo)
 plot_movement_trend +
   scale_fill_gradient2("Wanderungssaldo (2005-2019)", guide = guide_legend(ncol=1), low=mpidr_red, mid=mpidr_grey, high=mpidr_blue, n.breaks=8)
@@ -370,8 +378,8 @@ ggsave(filename="figures/wanderungssaldo_districts.pdf",
 mig_long <- bewegung_raeumlich %>% 
   pivot_longer(cols = c("anzahl_zuzuege", "anzahl_wegzuege"), names_to="direction", values_to="migration")
 ggplot(data=subset(mig_long, stadtbereich_bezeichnung%in%select_districts), aes(x=year)) +
-  geom_point(aes(y=migration, colour=direction, group=direction)) +
-  geom_line(aes(y=migration, colour=direction, group=direction)) +
+  geom_point(aes(y=migration, colour=direction, group=direction), size=3) +
+  geom_line(aes(y=migration, colour=direction, group=direction), linewidth=1.5) +
   #geom_ribbon(data=bewegung_raeumlich, aes(ymin=anzahl_zuzuege, ymax=anzahl_wegzuege, fill=ifelse(anzahl_wegzuege>anzahl_zuzuege, "schwund", "wachstum")), alpha=.5) +
   scale_colour_manual("Richtung", values=c(mpidr_blue, mpidr_orange), labels = c("Wegzüge", "Zuzüge")) +
   facet_wrap(~ stadtbereich_bezeichnung) +
@@ -398,7 +406,7 @@ pop_change_long <- pop_change %>%
             Zuzüge = sum(anzahl_wegzuege),
             pop = sum(abs_bestandsveraenderung),
             nat_pop = sum(geburten_sterbesaldo),
-            mig_pop = sum(wanderungssaldo),
+            mig_pop = sum(wanderungssaldo), .groups="drop"
             ) %>% 
   pivot_longer(cols=!stadtbereich_bezeichnung) %>% 
   group_by(stadtbereich_bezeichnung) %>% 
@@ -418,7 +426,8 @@ pop_change_long %>%
     axis.title.y = element_blank(),
     axis.ticks.y = element_blank(),
     legend.key.width = unit(1, "cm"),
-    plot.title.position = "plot")
+    plot.title.position = "plot",
+    legend.background = element_rect(colour="grey"))
 ggsave(filename="figures/pop_change_districts.pdf", height=20, width=20, unit="cm")
 
 
@@ -436,7 +445,8 @@ pop_change_long %>%
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
     legend.key.width = unit(1, "cm"),
-    plot.title.position = "plot")
+    plot.title.position = "plot",
+    legend.background = element_rect(colour="grey"))
 ggsave(filename="figures/pop_change_districts_zoom.pdf", height=15, width=20, unit="cm")
 
   
@@ -449,7 +459,8 @@ ggplot(subset(pop_change_long, !str_detect(name, "pop")), aes(x=fct_reorder(stad
   theme(
     axis.title.y = element_blank(),
     axis.ticks.y = element_blank(),
-    legend.position = c(0.8, 0.2)
+    legend.position = c(0.8, 0.2),
+    legend.background = element_rect(colour="grey")
   )
 
 ggsave(filename="figures/events_districts.pdf", height=20, width=20, unit="cm")
@@ -459,15 +470,15 @@ ggplot(subset(pop_change_long, !str_detect(name, "pop") & stadtbereich_bezeichnu
   geom_hline(yintercept = 0) +
   geom_col(aes(fill=name, group=name), position = position_dodge(), alpha=0.8) +
   scale_fill_manual("Ereignisse", values=c(mpidr_grey, mpidr_blue, mpidr_red, mpidr_green)) +
-  scale_y_continuous("Ereignisse", labels = abs, n.breaks=10) +
+  scale_y_continuous("Anzahl der Ereignisse", labels = abs, n.breaks=10) +
   facet_wrap(~ stadtbereich_bezeichnung) +
   theme(
-    axis.title.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    legend.position = c(0.8, 0.2)
+    axis.title.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    legend.position = c(0.8, 0.2),
+    legend.background = element_rect(colour="grey")
   )
 
-ggsave(filename="figures/events_districts_zoom.pdf", height=15, width=20, unit="cm")
 
 
 
