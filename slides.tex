@@ -1,0 +1,236 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{./mpidrtheme/mpidr21}
+
+%%this package is only here to include latex-sourcecode in the example-presentation
+\usepackage{verbatim}
+\usepackage{natbib}
+\usepackage{fontawesome5}
+\usepackage{natbib}
+\usepackage{apalike}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{babel}
+\newcommand\boldgreen[1]{\textcolor{mpidrgreen}{\textbf{#1}}}
+\AtBeginSection[]
+{
+\begin{frame}{Ablauf}
+\tableofcontents[currentsection]
+\end{frame}
+}
+% Declare the math size
+\DeclareMathSizes{50}{30}{10}{10}
+
+% Create the colours
+\definecolor{mpidr_red}{RGB}{180, 55, 70}
+\definecolor{mpidr_blue}{RGB}{14, 123, 172}
+\definecolor{mpidr_green}{RGB}{6, 110, 110}
+\definecolor{mpidr_orange}{RGB}{200, 125, 0}
+\definecolor{mpidr_grey}{RGB}{100, 100, 100}
+
+
+
+\bibliographystyle{kluwer}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	title page information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Theile]									
+{Demografie im Wandel: \\
+\small Wie sich die Bev\"olkerung von Rostock verändert}
+\author[Theile]{Henrik-Alexander Schubert\inst{1}}
+
+\institute[MPIDR]{\inst{1}Doktorand am \textit{Max-Planck-Institut für Demografische Forschung} und der \textit{University of Oxford}}
+
+%\Email{theile@mpidr.de}
+
+\begin{frame}[mpidrbackground=1]
+  \titlepage
+\end{frame}
+
+
+% Wimmelbild
+\begin{frame}[mpidrbackground = 4]
+    \frametitle{Was ist die Hanse- \& Universit\"atsstadt Rostock f\"ur dich?}
+    \begin{figure}
+   \includegraphics[width = \textwidth]{figures/rostock_wimmelbild.pdf}
+\end{figure}
+\end{frame}
+
+% Hansa
+\begin{frame}[mpidrbackground = 4]
+    \frametitle{Oder doch Hansa Rostock?}
+    \begin{figure}
+   \includegraphics[height = 6cm]{figures/hansa_logo.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}[mpidrbackground = 4]
+    \frametitle{Rostock aus Sicht eines Demografen}
+           \begin{figure}
+               \centering
+               \vspace{-10pt}
+               \includegraphics[height=7.5cm]{figures/pop_pyramide_rostock.pdf}
+           \end{figure}
+    \end{frame}
+
+\begin{frame}
+    \frametitle{Messfehler?}
+    \begin{figure}
+    \vspace{-10pt}
+   \includegraphics[height=5.5cm]{figures/rostock_ghsl.png}
+   \caption{\tiny{Quelle: Europ\"aische Union (Copernicus): Global Human Settlement Layer}}
+   \end{figure}
+    
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Altersstruktur in Rostock}
+    \begin{figure}
+        \vspace{-10pt}
+       \includegraphics[height=6.5cm]{figures/durchschnittsalter_district.pdf}
+   \end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}
+    \frametitle{Auf Schrumpfkurs?}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures/pop_proj_rostock.pdf}
+        \caption{Caption}
+        \label{fig:enter-label}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Bev\"olkerungsdynamik}
+    \begin{equation}
+        \textcolor{mpidr_red}{P_t} = \textcolor{mpidr_red}{P_{t-1}} + \textcolor{mpidr_blue}{\underbrace{B \ -\  D}_{\textrm{Nat\"urliche Bev\"olkerungsdynamik}}} + \textcolor{mpidr_grey}{\underbrace{I\  -\  E}_{\textrm{R\"aumliche Bev\"olkerungsdynamik}}}
+    \end{equation}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Bevölkerungsveränderungen}
+           \begin{figure}
+               \centering
+                \vspace{-10pt}
+               \includegraphics[height=7cm]{figures/pop_change_districts_zoom.pdf}
+           \end{figure}
+\end{frame}
+
+%====================================================
+
+%====================================
+
+%====================================
+\begin{frame}[mpidrbackground=5]
+    \frametitle{Dankesch\"on!}
+    
+    \vspace{0.8cm}
+    
+    \begin{columns}
+          \column{0.5\textwidth}
+          
+            \setbeamercolor{normal text}{fg=mpidrgreen}
+            \usebeamercolor[fg]{normal text}
+           Henrik-Alexander Schubert\\ \vspace{0.3cm}
+            \setbeamercolor{normal text}{fg=gray}
+            Wissenschaftler \\ \vspace{0.15cm}
+            \faIcon{at}schubert@demogr.mpg.de \\
+            \usebeamercolor[fg]{normal text}
+
+    
+          \column{0.35\textwidth}
+
+
+
+                \begin{figure}
+                \centering
+                \includegraphics[width=0.7\textwidth]{figures/qrcode_github.com.png}
+                \caption{Link zu Analyse}
+            \end{figure}
+            %\faIcon{twitter}@27Henrik
+             
+       \end{columns}
+
+\end{frame}
+
+\appendix
+
+\begin{frame}
+\frametitle{Geschlechterver\"altnis}
+    \begin{figure}
+               \centering
+               \vspace{-10pt}
+               \includegraphics[height=7cm]{figures/sr_rostock.pdf}
+           \end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Bev\"olkerungsver\"anderung in den Stadtteilen}
+           \begin{figure}
+               \centering
+                \vspace{-10pt}
+               \includegraphics[height=7cm]{figures/popoulation_growth_barchart.pdf}
+           \end{figure}
+\end{frame}
+
+% Events in the districts
+\begin{frame}
+\frametitle{Altersstruktur}
+           \begin{figure}
+               \centering
+                \vspace{-10pt}
+               \includegraphics[width=1\linewidth]{figures/altersstruktur_rostock.pdf}
+           \end{figure}
+\end{frame}
+
+% Events in the districts
+\begin{frame}
+\frametitle{Demografische Ereignisse}
+\begin{figure}
+        \vspace{-10pt}
+        \centering
+       \includegraphics[height=7cm]{figures/events_districts.pdf}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Mehr Frauen oder mehr M\"aenner?}
+    \begin{figure}
+    \vspace{-10pt}
+       \includegraphics[height=6.5cm]{figures/sr_district_map.pdf}
+   \end{figure}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Bevölkerungsveränderungen}
+           \begin{figure}
+               \centering
+               \vspace{-10pt}
+               \includegraphics[height=7cm]{figures/pop_change_districts.pdf}
+           \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Altersstruktur in den Bezirken}
+           \begin{figure}
+               \centering
+               \vspace{-10pt}
+               \includegraphics[height=7cm]{figures/altersstruktur_rostock_districts.pdf}
+           \end{figure}
+\end{frame}
+
+
+\end{document}

@@ -375,7 +375,7 @@ ggplot(data=movement_trend, aes(x= fct_reorder(stadtbereich_bezeichnung, wanderu
   geom_col(aes(fill=wanderungssaldo)) +
   geom_hline(yintercept = 0) +
   coord_flip() +
-  scale_fill_gradient2(low="darkred", mid="grey", high="darkblue") +
+  scale_fill_gradient2(low=mpidr_red, mid=mpidr_grey, high=mpidr_blue) +
   guides(fill="none") +
   theme(
     axis.title.y=element_blank()
