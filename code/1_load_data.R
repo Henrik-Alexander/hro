@@ -102,9 +102,6 @@ lapply(c("raw", "data"), create_folder)
 # Create the topic folder
 lapply(file.path("raw", unique(meta_data$dataset)), create_folder)
 
-# Create the save place
-
-
 
 ## Load the data -------------------------------------------------
 
