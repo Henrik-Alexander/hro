@@ -84,7 +84,9 @@ ggplot(data=HRO_work, mapping = aes(Jahr, Summe,color=Lebensphase, group=Lebensp
   geom_text(data=subset(HRO_work, Jahr == 2030), aes(label = Lebensphase), vjust = -1, fontface = "bold", size = 6) +
   scale_x_continuous(n.breaks = 10, expand = c(0, 0.2)) +
   scale_y_continuous("Bevölkerungsgröße", labels = scales::label_number(scale = 1e-3, suffix = " K"), expand = c(0.2, 0), n.breaks = 8) +
-  guides(color = "none", shape = "none")
+  guides(color = "none", shape = "none") +
+  scale_colour_manual(values=c(mpidr_blue, mpidr_red, mpidr_green))
+
 ggsave(filename = "Figures/projection_dependency_counts.pdf", height = 18, width = 22, unit = "cm")
 
 # Estimate the dependency ratios
@@ -103,7 +105,9 @@ ggplot(data=HRO_ratios, aes(x=Jahr, y=value,color=name, group=name, shape = name
   geom_text(data=subset(HRO_ratios, Jahr == 2030), aes(label = paste("pro", str_to_title(str_remove(name, "_ratio")))), vjust = -1, fontface = "bold", size = 6) +
   scale_x_continuous(n.breaks = 10, expand = c(0, 0.2)) +
   scale_y_log10("Erwerbstätige",limits = c(1, 5), n.breaks = 10) +
-  guides(color = "none", shape = "none")
+  guides(color = "none", shape = "none") +
+  scale_colour_manual(values=c(mpidr_blue, mpidr_red, mpidr_green))
+  
 ggsave(filename = "Figures/projection_dependency_ratio.pdf", height = 18, width = 22, unit = "cm")
 
 

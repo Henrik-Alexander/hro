@@ -475,11 +475,11 @@ pop_change_long %>%
   geom_hline(yintercept = 0) +
   scale_fill_manual("Bevölkerungsveränderung", values=c(mpidr_grey, mpidr_blue, mpidr_red), labels = c("Räumlich", "Natürlich", "Insgesamt")) +
   theme(legend.position=c(0.8, 0.2)) + 
-  scale_y_continuous("Bevölkerungsveränderung", labels = abs, n.breaks=10) +
+  scale_y_continuous("Bevölkerungsveränderung", labels = abs, n.breaks=5) +
   scale_x_discrete(labels = c("Räumlich", "Natürlich", "Insgesamt")) +
   #ggtitle("Bevölkerungsveränderung") +
   coord_flip() +
-  facet_wrap( ~ stadtbereich_bezeichnung, ncol = 1) +
+  facet_wrap( ~ stadtbereich_bezeichnung, nrow = 2) +
   guides(fill = "none") +
   theme(
     axis.title.y = element_blank(),
@@ -487,9 +487,7 @@ pop_change_long %>%
     legend.key.width = unit(1, "cm"),
     plot.title.position = "plot",
     legend.background = element_rect(colour="grey"))
-ggsave(filename="figures/pop_change_districts.pdf", height=20, width=20, unit="cm")
-
-
+ggsave(filename="figures/pop_change_districts.pdf", height=10, width=20, unit="cm")
 
 
 pop_change_long %>% 
@@ -541,7 +539,7 @@ ggplot(subset(pop_change_long, !str_detect(name, "pop") & stadtbereich_bezeichnu
     legend.background = element_rect(colour="grey")
   )
 
-ggsave(filename="figures/events_districts_zoom.pdf", height=20, width=25, unit="cm")
+ggsave(filename="figures/events_districts_zoom.pdf", height=20, width=30, unit="cm")
 
 
 ### END ######################################################

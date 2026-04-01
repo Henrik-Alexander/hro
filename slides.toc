@@ -1,4 +1,4 @@
 \babel@toc {nil}{}\relax 
 \beamer@sectionintoc {1}{Die historische Bev\"olkerungsentwicklung}{2}{0}{1}
-\beamer@sectionintoc {2}{Die Bev\"olkerungsstruktur in der Gegenwart}{7}{0}{2}
-\beamer@sectionintoc {3}{Die Bev\"olkerung in der Zukunft}{14}{0}{3}
+\beamer@sectionintoc {2}{Die Bev\"olkerungsstruktur in der Gegenwart}{8}{0}{2}
+\beamer@sectionintoc {3}{Die Bev\"olkerung in der Zukunft}{12}{0}{3}

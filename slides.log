@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.24)  1 APR 2026 14:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.7.24)  1 APR 2026 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1194,207 +1194,195 @@ chubert/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./mpidrthem
 e/mpidrslides21.pdf>] (slides.toc) [2
 
 ]
-<figures/durchschnittsalter_district.pdf, id=113, 426.59375pt x 568.1225pt>
-File: figures/durchschnittsalter_district.pdf Graphic file (type pdf)
-<use figures/durchschnittsalter_district.pdf>
-Package pdftex.def Info: figures/durchschnittsalter_district.pdf  used on input
- line 97.
-(pdftex.def)             Requested size: 138.86914pt x 184.9429pt.
- [3
-
- <./figures/durchschnittsalter_district.pdf>]
-<figures/pop_proj_rostock.pdf, id=149, 625.33624pt x 426.59375pt>
+<figures/pop_proj_rostock.pdf, id=114, 625.33624pt x 426.59375pt>
 File: figures/pop_proj_rostock.pdf Graphic file (type pdf)
 <use figures/pop_proj_rostock.pdf>
-Package pdftex.def Info: figures/pop_proj_rostock.pdf  used on input line 110.
+Package pdftex.def Info: figures/pop_proj_rostock.pdf  used on input line 102.
 (pdftex.def)             Requested size: 273.14749pt x 186.34138pt.
 
-Overfull \vbox (39.86792pt too high) detected at line 110
+Overfull \vbox (39.86792pt too high) detected at line 102
+ []
+
+[3
+
+ <./figures/pop_proj_rostock.pdf>]
+<figures/popoulation_growth_barchart.pdf, id=150, 568.1225pt x 568.1225pt>
+File: figures/popoulation_growth_barchart.pdf Graphic file (type pdf)
+<use figures/popoulation_growth_barchart.pdf>
+Package pdftex.def Info: figures/popoulation_growth_barchart.pdf  used on input
+ line 111.
+(pdftex.def)             Requested size: 199.1666pt x 199.16928pt.
+
+Overfull \vbox (13.15137pt too high) detected at line 111
  []
 
 [4
 
- <./figures/pop_proj_rostock.pdf>] [5
+ <./figures/popoulation_growth_barchart.pdf>] [5
 
 ]
 <figures/pop_change_districts_zoom.pdf, id=217, 710.655pt x 568.1225pt>
 File: figures/pop_change_districts_zoom.pdf Graphic file (type pdf)
 <use figures/pop_change_districts_zoom.pdf>
 Package pdftex.def Info: figures/pop_change_districts_zoom.pdf  used on input l
-ine 128.
+ine 131.
 (pdftex.def)             Requested size: 249.13419pt x 199.16928pt.
 
-Overfull \vbox (13.15137pt too high) detected at line 128
+Overfull \vbox (13.15137pt too high) detected at line 131
  []
 
 [6
 
- <./figures/pop_change_districts_zoom.pdf>] (slides.toc) [7
+ <./figures/pop_change_districts_zoom.pdf>]
+<figures/events_districts_zoom.pdf, id=250, 853.1875pt x 568.1225pt>
+File: figures/events_districts_zoom.pdf Graphic file (type pdf)
+<use figures/events_districts_zoom.pdf>
+Package pdftex.def Info: figures/events_districts_zoom.pdf  used on input line 
+154.
+(pdftex.def)             Requested size: 299.10179pt x 199.16928pt.
 
-]
-<figures/popoulation_growth_barchart.pdf, id=282, 568.1225pt x 568.1225pt>
-File: figures/popoulation_growth_barchart.pdf Graphic file (type pdf)
-<use figures/popoulation_growth_barchart.pdf>
-Package pdftex.def Info: figures/popoulation_growth_barchart.pdf  used on input
- line 142.
-(pdftex.def)             Requested size: 199.1666pt x 199.16928pt.
-
-Overfull \vbox (13.15137pt too high) detected at line 142
+Overfull \vbox (13.15137pt too high) detected at line 154
  []
 
-[8
+[7
 
- <./figures/popoulation_growth_barchart.pdf>]
-<figures/altersstruktur_rostock.pdf, id=316, 710.655pt x 426.59375pt>
+ <./figures/events_districts_zoom.pdf>] (slides.toc) [8
+
+]
+<figures/altersstruktur_rostock.pdf, id=318, 710.655pt x 426.59375pt>
 File: figures/altersstruktur_rostock.pdf Graphic file (type pdf)
 <use figures/altersstruktur_rostock.pdf>
 Package pdftex.def Info: figures/altersstruktur_rostock.pdf  used on input line
- 152.
+ 170.
 (pdftex.def)             Requested size: 341.43307pt x 204.95795pt.
 
-Overfull \vbox (18.94003pt too high) detected at line 152
+Overfull \vbox (18.94003pt too high) detected at line 170
  []
 
 [9
 
  <./figures/altersstruktur_rostock.pdf>]
-<figures/events_districts.pdf, id=350, 568.1225pt x 568.1225pt>
-File: figures/events_districts.pdf Graphic file (type pdf)
-<use figures/events_districts.pdf>
-Package pdftex.def Info: figures/events_districts.pdf  used on input line 162.
-(pdftex.def)             Requested size: 199.1666pt x 199.16928pt.
-
-Overfull \vbox (13.15137pt too high) detected at line 162
- []
-
-[10
-
- <./figures/events_districts.pdf>]
-<figures/sr_district_map.pdf, id=387, 426.59375pt x 568.1225pt>
-File: figures/sr_district_map.pdf Graphic file (type pdf)
-<use figures/sr_district_map.pdf>
-Package pdftex.def Info: figures/sr_district_map.pdf  used on input line 171.
+<figures/durchschnittsalter_district.pdf, id=352, 426.59375pt x 568.1225pt>
+File: figures/durchschnittsalter_district.pdf Graphic file (type pdf)
+<use figures/durchschnittsalter_district.pdf>
+Package pdftex.def Info: figures/durchschnittsalter_district.pdf  used on input
+ line 178.
 (pdftex.def)             Requested size: 138.86914pt x 184.9429pt.
- [11
+ [10
 
- <./figures/sr_district_map.pdf>]
-<figures/pop_change_districts.pdf, id=423, 568.1225pt x 568.1225pt>
-File: figures/pop_change_districts.pdf Graphic file (type pdf)
-<use figures/pop_change_districts.pdf>
-Package pdftex.def Info: figures/pop_change_districts.pdf  used on input line 1
-81.
-(pdftex.def)             Requested size: 199.1666pt x 199.16928pt.
-
-Overfull \vbox (13.15137pt too high) detected at line 181
- []
-
-[12
-
- <./figures/pop_change_districts.pdf>]
-<figures/altersstruktur_rostock_districts.pdf, id=456, 710.655pt x 426.59375pt>
+ <./figures/durchschnittsalter_district.pdf>]
+<figures/altersstruktur_rostock_districts.pdf, id=387, 710.655pt x 426.59375pt>
 
 File: figures/altersstruktur_rostock_districts.pdf Graphic file (type pdf)
 <use figures/altersstruktur_rostock_districts.pdf>
 Package pdftex.def Info: figures/altersstruktur_rostock_districts.pdf  used on 
-input line 190.
+input line 189.
 (pdftex.def)             Requested size: 331.79578pt x 199.16928pt.
 
-Overfull \vbox (13.15137pt too high) detected at line 190
+Overfull \vbox (13.15137pt too high) detected at line 189
+ []
+
+[11
+
+ <./figures/altersstruktur_rostock_districts.pdf>] (slides.toc) [12
+
+]
+<Figures/projection_pop_size.pdf, id=450, 625.33624pt x 511.9125pt>
+File: Figures/projection_pop_size.pdf Graphic file (type pdf)
+<use Figures/projection_pop_size.pdf>
+Package pdftex.def Info: Figures/projection_pop_size.pdf  used on input line 20
+3.
+(pdftex.def)             Requested size: 243.2981pt x 199.16928pt.
+
+Overfull \vbox (13.15137pt too high) detected at line 203
  []
 
 [13
 
- <./figures/altersstruktur_rostock_districts.pdf>] (slides.toc) [14
-
-]
-<Figures/projection_pop_size.pdf, id=520, 625.33624pt x 511.9125pt>
-File: Figures/projection_pop_size.pdf Graphic file (type pdf)
-<use Figures/projection_pop_size.pdf>
-Package pdftex.def Info: Figures/projection_pop_size.pdf  used on input line 20
-4.
+ <./Figures/projection_pop_size.pdf>]
+<Figures/projection_pop_change_relative.pdf, id=485, 625.33624pt x 511.9125pt>
+File: Figures/projection_pop_change_relative.pdf Graphic file (type pdf)
+<use Figures/projection_pop_change_relative.pdf>
+Package pdftex.def Info: Figures/projection_pop_change_relative.pdf  used on in
+put line 212.
 (pdftex.def)             Requested size: 243.2981pt x 199.16928pt.
 
-Overfull \vbox (13.15137pt too high) detected at line 204
+Overfull \vbox (13.15137pt too high) detected at line 212
+ []
+
+[14
+
+ <./Figures/projection_pop_change_relative.pdf>]
+<Figures/projection_change_arrows.pdf, id=519, 710.655pt x 426.59375pt>
+File: Figures/projection_change_arrows.pdf Graphic file (type pdf)
+<use Figures/projection_change_arrows.pdf>
+Package pdftex.def Info: Figures/projection_change_arrows.pdf  used on input li
+ne 222.
+(pdftex.def)             Requested size: 331.79578pt x 199.16928pt.
+
+Overfull \vbox (13.15137pt too high) detected at line 222
  []
 
 [15
 
- <./Figures/projection_pop_size.pdf>]
-<Figures/projection_pop_change_relative.pdf, id=554, 625.33624pt x 511.9125pt>
-File: Figures/projection_pop_change_relative.pdf Graphic file (type pdf)
-<use Figures/projection_pop_change_relative.pdf>
-Package pdftex.def Info: Figures/projection_pop_change_relative.pdf  used on in
-put line 213.
+ <./Figures/projection_change_arrows.pdf>]
+<Figures/projection_dependency_ratio.pdf, id=553, 625.33624pt x 511.9125pt>
+File: Figures/projection_dependency_ratio.pdf Graphic file (type pdf)
+<use Figures/projection_dependency_ratio.pdf>
+Package pdftex.def Info: Figures/projection_dependency_ratio.pdf  used on input
+ line 231.
 (pdftex.def)             Requested size: 243.2981pt x 199.16928pt.
 
-Overfull \vbox (13.15137pt too high) detected at line 213
+Overfull \vbox (13.15137pt too high) detected at line 231
  []
 
 [16
 
- <./Figures/projection_pop_change_relative.pdf>]
-<Figures/projection_change_arrows.pdf, id=588, 710.655pt x 426.59375pt>
-File: Figures/projection_change_arrows.pdf Graphic file (type pdf)
-<use Figures/projection_change_arrows.pdf>
-Package pdftex.def Info: Figures/projection_change_arrows.pdf  used on input li
-ne 223.
-(pdftex.def)             Requested size: 331.79578pt x 199.16928pt.
-
-Overfull \vbox (13.15137pt too high) detected at line 223
- []
-
-[17
-
- <./Figures/projection_change_arrows.pdf>]
-<Figures/projection_dependency_ratio.pdf, id=622, 625.33624pt x 511.9125pt>
-File: Figures/projection_dependency_ratio.pdf Graphic file (type pdf)
-<use Figures/projection_dependency_ratio.pdf>
-Package pdftex.def Info: Figures/projection_dependency_ratio.pdf  used on input
- line 232.
-(pdftex.def)             Requested size: 243.2981pt x 199.16928pt.
-
-Overfull \vbox (13.15137pt too high) detected at line 232
- []
-
-[18
-
  <./Figures/projection_dependency_ratio.pdf>]
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 272.
+nput line 271.
 
 (C:\Users\schubert\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaw
 esomefree0.fd)
-<figures/qrcode_github.com.png, id=655, 451.6875pt x 451.6875pt>
+<figures/qrcode_github.com.png, id=586, 451.6875pt x 451.6875pt>
 File: figures/qrcode_github.com.png Graphic file (type png)
 <use figures/qrcode_github.com.png>
-Package pdftex.def Info: figures/qrcode_github.com.png  used on input line 272.
+Package pdftex.def Info: figures/qrcode_github.com.png  used on input line 271.
 
 (pdftex.def)             Requested size: 83.65218pt x 83.65047pt.
-<./mpidrtheme/mpidrslides21.pdf, id=656, page=5, 963.58101pt x 541.99657pt>
+<./mpidrtheme/mpidrslides21.pdf, id=587, page=5, 963.58101pt x 541.99657pt>
 File: ./mpidrtheme/mpidrslides21.pdf Graphic file (type pdf)
 <use ./mpidrtheme/mpidrslides21.pdf, page 5>
 Package pdftex.def Info: ./mpidrtheme/mpidrslides21.pdf , page5 used on input l
-ine 272.
+ine 271.
 (pdftex.def)             Requested size: 455.25034pt x 256.08646pt.
- [19
+ [17
 
 {C:/Users/schubert/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/f
 a5free0.enc} <./mpidrtheme/mpidrslides21.pdf> <./figures/qrcode_github.com.png 
 (PNG copy)>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\translate ' on input line 275.
+(hyperref)                removing `\translate ' on input line 274.
 
-<figures/sr_rostock.pdf, id=698, 568.1225pt x 426.59375pt>
+<figures/sr_district_map.pdf, id=628, 426.59375pt x 568.1225pt>
+File: figures/sr_district_map.pdf Graphic file (type pdf)
+<use figures/sr_district_map.pdf>
+Package pdftex.def Info: figures/sr_district_map.pdf  used on input line 283.
+(pdftex.def)             Requested size: 138.86914pt x 184.9429pt.
+[18
+
+ <./figures/sr_district_map.pdf>]
+<figures/sr_rostock.pdf, id=663, 568.1225pt x 426.59375pt>
 File: figures/sr_rostock.pdf Graphic file (type pdf)
 <use figures/sr_rostock.pdf>
-Package pdftex.def Info: figures/sr_rostock.pdf  used on input line 283.
+Package pdftex.def Info: figures/sr_rostock.pdf  used on input line 294.
 (pdftex.def)             Requested size: 265.24916pt x 199.16928pt.
 
-Overfull \vbox (13.15137pt too high) detected at line 283
+Overfull \vbox (13.15137pt too high) detected at line 294
  []
 
-[20
+[19
 
  <./figures/sr_rostock.pdf>]
 \tf@nav=\write6
@@ -1415,10 +1403,10 @@ Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: B0032511D19311CB9576C1E721B6542D;799.
  ) 
 Here is how much of TeX's memory you used:
- 29699 strings out of 474486
- 599824 string characters out of 5742339
+ 29688 strings out of 474486
+ 599526 string characters out of 5742339
  1936542 words of memory out of 5000000
- 51360 multiletter control sequences out of 15000+600000
+ 51351 multiletter control sequences out of 15000+600000
  580541 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,123p,383b,737s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1439,9 +1427,9 @@ s/schubert/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C
 :/Users/schubert/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.
 pfb><C:/Users/schubert/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/u
 hvro8a.pfb>
-Output written on slides.pdf (20 pages, 1800428 bytes).
+Output written on slides.pdf (19 pages, 1789274 bytes).
 PDF statistics:
- 804 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 160 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 770 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
