@@ -1,8 +1,17 @@
 ######
+# Project: Presentation for LNdW and CDU-Kreisverband
+# Purpose: Visualising the population projections
+# Authors: Henrik Schubert & Johann Behrendt
+# E-mail: schubert@demogr.mpg.de
+# Date: 01/04/2026
+#######
+
 #Description
 library(readxl)
 library(tidyverse)
 library(dplyr)
+
+
 ##################visualisation of the past 
 
 # Load the graphic template
@@ -50,9 +59,9 @@ HRO_past_future <- bind_rows(Rostock_past_final, HRO_years)
 
 ggplot(data=HRO_past_future, mapping = aes(Jahr, Gesamtanzahl)) +
   geom_vline(xintercept = 2024, linetype = "dashed", color = "grey") +
-  geom_line(data = filter(HRO_past_future, Jahr <= 2024), linetype = "solid", linewidth = 1) +
-  geom_point(data = filter(HRO_past_future, Jahr <= 2024), linewidth = 1) +
-  geom_line(data = filter(HRO_past_future, Jahr >= 2024), linetype = "dashed", linewidth = 1) +
+  geom_line(data = filter(HRO_past_future, Jahr <= 2024), linetype = "solid", size = 1) +
+  geom_point(data = filter(HRO_past_future, Jahr <= 2024), size = 3) +
+  geom_line(data = filter(HRO_past_future, Jahr >= 2024), linetype = "dashed", size = 1) +
   scale_x_continuous(n.breaks = 10, expand = c(0, 0.2)) +
   scale_y_continuous("Bevölkerungsgröße", labels = scales::label_number(scale = 1e-3, suffix = " K"), expand = c(0.3, 0), n.breaks = 8) 
 ggsave(filename = "Figures/projection_pop_size.pdf", height = 18, width = 22, unit = "cm")
@@ -72,7 +81,7 @@ HRO_work <- data %>%
 ggplot(data=HRO_work, mapping = aes(Jahr, Summe,color=Lebensphase, group=Lebensphase, shape = Lebensphase))+
   geom_line() +
   geom_point() +
-  geom_text(data=subset(HRO_work, Jahr == 2030), aes(label = Lebensphase), vjust = -1) +
+  geom_text(data=subset(HRO_work, Jahr == 2030), aes(label = Lebensphase), vjust = -1, fontface = "bold", size = 6) +
   scale_x_continuous(n.breaks = 10, expand = c(0, 0.2)) +
   scale_y_continuous("Bevölkerungsgröße", labels = scales::label_number(scale = 1e-3, suffix = " K"), expand = c(0.2, 0), n.breaks = 8) +
   guides(color = "none", shape = "none")
@@ -91,7 +100,7 @@ ggplot(data=HRO_ratios, aes(x=Jahr, y=value,color=name, group=name, shape = name
   geom_hline(yintercept = 1) +
   geom_line() +
   geom_point() +
-  geom_text(data=subset(HRO_ratios, Jahr == 2030), aes(label = paste("pro", str_to_title(str_remove(name, "_ratio")))), vjust = -1) +
+  geom_text(data=subset(HRO_ratios, Jahr == 2030), aes(label = paste("pro", str_to_title(str_remove(name, "_ratio")))), vjust = -1, fontface = "bold", size = 6) +
   scale_x_continuous(n.breaks = 10, expand = c(0, 0.2)) +
   scale_y_log10("Erwerbstätige",limits = c(1, 5), n.breaks = 10) +
   guides(color = "none", shape = "none")
@@ -116,7 +125,7 @@ data_diff_2023_2040 <- data_diff_2023_2040 %>%
 ggplot(data_diff_2023_2040, aes(x=AG,y=Veränderung,fill=Veränderung>0))+
   geom_col(color="white")+
   geom_hline(yintercept = 0) +
-  geom_text(aes(label = round(Veränderung)), hjust = -0.2, family = "serif") +
+  geom_text(aes(label = round(Veränderung)), hjust = -0.2, family = "serif", fontface = "bold", size = 6) +
   # labs(title = "Absolute Veränderungen der Bevölkerungsanzahl von 2023 zu 2040 nach Altersgruppen")+
   scale_x_discrete("Altersgruppe") + 
   scale_y_continuous("Absolute Bevölkerungsveränderung") +
@@ -128,7 +137,7 @@ ggsave(filename = "Figures/projection_pop_change_absolute.pdf", height = 18, wid
 ggplot(data_diff_2023_2040, aes(x=AG,y=Veränderung/`2023`,fill=Veränderung>0))+
   geom_col(color="white")+
   geom_hline(yintercept = 0) +
-  geom_text(aes(label = paste0(round(Veränderung/`2023` * 100, 1), "%"), y = 1.1 * Veränderung/`2023`),  family = "serif") +
+  geom_text(aes(label = paste0(round(Veränderung/`2023` * 100, 1), "%"), y = 1.1 * Veränderung/`2023`),  family = "serif", fontface = "bold", size = 6) +
   # labs(title = "Absolute Veränderungen der Bevölkerungsanzahl von 2023 zu 2040 nach Altersgruppen")+
   scale_x_discrete("Altersgruppe") + 
   scale_y_continuous("Bevölkerungsveränderung (%)", labels = scales::percent, n.breaks = 10) +
@@ -136,5 +145,21 @@ ggplot(data_diff_2023_2040, aes(x=AG,y=Veränderung/`2023`,fill=Veränderung>0))
   scale_fill_manual(values = c("TRUE"  = "#2ecc71","FALSE" = "#e74c3c"), guide = "none")
 ggsave(filename = "Figures/projection_pop_change_relative.pdf", height = 18, width = 22, unit = "cm")
 # hjust = ifelse(Veränderung>0, 0.5, -0.5)
+
+
+## Plot the relative population change
+
+ggplot(data = data_diff_2023_2040, aes(x = AG, y = `2023`)) +
+  geom_point(size = 3) +
+  geom_segment(aes(x = AG, y = `2023`, yend = `2040`, colour = ifelse(`2040` > `2023`, "Wächst", "Schrumpft")), linewidth = 1.5, arrow = grid::arrow(type = "closed", length = unit(0.1, "inches"), angle = 25)) +
+  coord_flip() +
+  scale_x_discrete("Altersgruppe") +
+  scale_y_continuous("Bevölkerung (2023 vs. 2040)", n.breaks = 10, labels = scales::label_number(scale = 1e-3, suffix = " K")) +
+  scale_color_manual("", values = c("red", "forestgreen")) +
+  theme(legend.title = element_blank(),
+        legend.position = c(0.8, 0.2))
+ggsave(filename = "Figures/projection_change_arrows.pdf", height = 15, width = 25, unit = "cm")
+
+
 
 ### END #######################################################################

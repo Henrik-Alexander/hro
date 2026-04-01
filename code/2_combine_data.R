@@ -111,6 +111,6 @@ base_map <- ggplot() +
 
 
 # Save the base map as R-file
-save(base_map, map_labels, file="base_map.Rda")
+save(base_map, file="base_map.Rda")
 
 ### END #############################################################

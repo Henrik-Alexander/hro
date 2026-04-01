@@ -129,7 +129,7 @@ population_growth <- bewegung_gesamt %>%
             end=max(year), .groups="drop")
 plot_population_growth <- plot_indicator_map(population_growth, abs_bestandsveraenderung)
 plot_population_growth +
-  ggtitle("Bevölkerungswachstum (2005-2019)") +
+  #ggtitle("Bevölkerungswachstum (2005-2019)") +
   scale_fill_gradient2(guide = guide_legend(ncol=1), low=mpidr_red, mid=mpidr_grey, high=mpidr_blue, n.breaks=8) +
   theme(legend.title = element_blank())
 ggsave("figures/pop_growth_map.pdf", height=20, width=15, unit="cm")
@@ -145,7 +145,7 @@ ggplot(data=population_growth, aes(x= fct_reorder(stadtbereich_bezeichnung, abs_
   theme(
     axis.title.y=element_blank()
   ) +
-  ggtitle("Bevölkerungswachstum (2005-2019)")
+  #ggtitle("Bevölkerungswachstum (2005-2019)")
 
 ggsave(filename="figures/popoulation_growth_barchart.pdf",
        height=20, width =20, unit="cm")
@@ -176,7 +176,7 @@ plot <- plot_indicator_map(haushaltsstruktur, indicator=anteil_alleinerziehende_
 plot +
   scale_fill_viridis_c("", guide = guide_legend(ncol=1), n.breaks=10) +
   theme(legend.key.width = unit(0.5, "cm")) +
-  ggtitle("Anteil Alleinerziehende an Haushalten mit Kindern")
+  #ggtitle("Anteil Alleinerziehende an Haushalten mit Kindern")
 
 # Natural population change ------------------------------------------------------
 
@@ -185,7 +185,7 @@ plot <- plot_indicator_map(bewegung_natuerlich, indicator=geburten_sterbesaldo, 
 plot +
   scale_fill_gradient2("Geburten-Sterbesaldo", guide = guide_legend(ncol=1), low=mpidr_red, mid=mpidr_grey, high=mpidr_blue, n.breaks=8) +
   theme(legend.key.width = unit(0.5, "cm")) +
-  ggtitle("Naturürliche Bevölkerungsveränderung (Geburten-Sterbefälle)")
+  #ggtitle("Naturürliche Bevölkerungsveränderung (Geburten-Sterbefälle)")
 
 # Plot the natural population change
 plot <- plot_indicator_map(bewegung_natuerlich, indicator=geburten_sterbesaldo_je_1000, year=2022)
@@ -221,7 +221,7 @@ plot_movement_trend <- plot_indicator_map(alter, durchschnittsalter, year=2023)
 plot_movement_trend +
   scale_fill_gradient("Alter", guide = guide_legend(ncol=1),  low=mpidr_blue, high=mpidr_red, n.breaks=8) +
   theme(legend.key.width = unit(1, "cm")) +
-  ggtitle("Durchschnittsalter (2023)")
+  #ggtitle("Durchschnittsalter (2023)")
 ggsave(filename="figures/durchschnittsalter_district.pdf", height=20, width=15, unit="cm")
 
 # Reshape the data from wide (anzahl und anteil) zu long format
@@ -292,7 +292,7 @@ ggplot(subset(alter_rostock, year %in% c(2005, 2023)), aes(x=age_group, y = pop,
   #scale_fill_viridis_d("Year:") +
   scale_fill_manual("Jahr:", values=c(mpidr_blue, mpidr_orange)) +
   scale_x_discrete("Altersgruppe") +
-  ggtitle("Altersstruktur in Rostock") + 
+  #ggtitle("Altersstruktur in Rostock") + 
   scale_y_continuous("Bevölkerung", limits = c(0, 33000), n.breaks = 10, expand=c(0, 0)) +
   theme(
     legend.position=c(0.1, 0.8)
@@ -310,7 +310,7 @@ plot_sr_map  <- plot_indicator_map(geschlecht, sr, year=2023)
 plot_sr_map +
   scale_fill_gradient2("", guide = guide_legend(ncol=1), low=mpidr_red, mid=mpidr_grey, midpoint=1, high=mpidr_blue, n.breaks=10) +
   theme(legend.key.width = unit(1, "cm")) +
-  ggtitle("Geschlechterverhältnis (2023)")
+  #ggtitle("Geschlechterverhältnis (2023)")
 ggsave(filename="figures/sr_district_map.pdf", height=20, width=15, unit="cm")
 
 
@@ -380,7 +380,7 @@ ggplot(data=movement_trend, aes(x= fct_reorder(stadtbereich_bezeichnung, wanderu
   theme(
     axis.title.y=element_blank()
   ) +
-  ggtitle("Wanderungssaldo (2005-2019)")
+  #ggtitle("Wanderungssaldo (2005-2019)")
 
 ggsave(filename="figures/wanderungssaldo_districts.pdf",
        height=12, width =10, unit="cm")
@@ -438,7 +438,7 @@ pop_change_long %>%
   scale_fill_manual("Bevölkerungsveränderung", values=c(mpidr_grey, mpidr_blue, mpidr_red), labels = c("Räumlich", "Natürlich", "Insgesamt")) +
   theme(legend.position=c(0.8, 0.2)) + 
   scale_y_continuous("Bevölkerungsveränderung", labels = abs, n.breaks=10) +
-  ggtitle("Bevölkerungsveränderung") +
+  #ggtitle("Bevölkerungsveränderung") +
   coord_flip() +
   theme(
     axis.title.y = element_blank(),
@@ -451,6 +451,49 @@ ggsave(filename="figures/pop_change_districts.pdf", height=20, width=20, unit="c
 
 pop_change_long %>% 
   filter(str_detect(name, "pop") & stadtbereich_bezeichnung %in% select_districts) %>% 
+  ggplot(data=., aes(x=fct_reorder(stadtbereich_bezeichnung, max_val), y=value, fill=name)) +
+  geom_col(position = position_dodge()) +
+  geom_hline(yintercept = 0) +
+  scale_fill_manual("Bevölkerungsveränderung", values=c(mpidr_grey, mpidr_blue, mpidr_red), labels = c("Räumlich", "Natürlich", "Insgesamt")) +
+  theme(legend.position=c(0.8, 0.2)) + 
+  scale_y_continuous("Bevölkerungsveränderung", labels = abs, n.breaks=10) +
+  #ggtitle("Bevölkerungsveränderung") +
+  coord_flip() +
+  theme(
+    axis.title.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    legend.key.width = unit(1, "cm"),
+    plot.title.position = "plot",
+    legend.background = element_rect(colour="grey"))
+ggsave(filename="figures/pop_change_districts.pdf", height=20, width=20, unit="cm")
+
+
+pop_change_long %>% 
+  filter(str_detect(name, "pop") & stadtbereich_bezeichnung %in% select_districts) %>% 
+  ggplot(data=., aes(x=fct_reorder(name, max_val), y=value, fill=name)) +
+  geom_col(position = position_dodge()) +
+  geom_hline(yintercept = 0) +
+  scale_fill_manual("Bevölkerungsveränderung", values=c(mpidr_grey, mpidr_blue, mpidr_red), labels = c("Räumlich", "Natürlich", "Insgesamt")) +
+  theme(legend.position=c(0.8, 0.2)) + 
+  scale_y_continuous("Bevölkerungsveränderung", labels = abs, n.breaks=10) +
+  scale_x_discrete(labels = c("Räumlich", "Natürlich", "Insgesamt")) +
+  #ggtitle("Bevölkerungsveränderung") +
+  coord_flip() +
+  facet_wrap( ~ stadtbereich_bezeichnung, ncol = 1) +
+  guides(fill = "none") +
+  theme(
+    axis.title.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    legend.key.width = unit(1, "cm"),
+    plot.title.position = "plot",
+    legend.background = element_rect(colour="grey"))
+ggsave(filename="figures/pop_change_districts.pdf", height=20, width=20, unit="cm")
+
+
+
+
+pop_change_long %>% 
+  filter(str_detect(name, "pop") & stadtbereich_bezeichnung %in% select_districts) %>% 
   ggplot(aes(x=name, y=value, fill=name)) +
   geom_col(position = position_dodge()) +
   geom_hline(yintercept = 0) +
@@ -459,6 +502,7 @@ pop_change_long %>%
   scale_x_discrete(labels =c("Räumlich", "Natürlich", "Insgesamt")) +
   scale_y_continuous("Bevölkerungsveränderung", labels = abs, n.breaks=10) +
   facet_wrap(~ stadtbereich_bezeichnung) +
+  guides(fill = "none") +
   theme(
     axis.title.x = element_blank(),
     axis.ticks.x = element_blank(),
@@ -496,7 +540,6 @@ ggplot(subset(pop_change_long, !str_detect(name, "pop") & stadtbereich_bezeichnu
     legend.position = c(0.8, 0.2),
     legend.background = element_rect(colour="grey")
   )
-
 
 ggsave(filename="figures/events_districts_zoom.pdf", height=20, width=25, unit="cm")
 
